@@ -1,0 +1,152 @@
+dataset ,variable,ordernumber,mandatory,keysequence,method,type 
+adsl ,studyid,1,No,1,,
+adsl ,usubjid,2,No,2,,
+adsl ,subjid,3,No,,,
+adsl ,siteid,4,No,,,
+adsl ,sitegr1,5,No,,"refer to SAP, Section 7.1 - if not pooled then SITEGR1=SITEID. If pooled, SITEGR1 will be 900",Computation
+adsl ,arm,6,No,,,
+adsl ,trt01p,7,No,,,
+adsl ,trt01pn,8,No,,,
+adsl ,trt01a,9,No,,,
+adsl ,trt01an,10,No,,,
+adsl ,trtsdt ,11,No ,,"SV.SVSTDTC where SV.VISITNUM=3, converted to SAS date",Computation
+adsl ,trtedt,12,No,,"The date of final dose (from the CRF) is EX.EXENDTC on the subject's last EX record. If the date of final dose is missing for the subject and the subject discontinued after visit 3, use the date of discontinuation as the date of last dose. Convert the date to a SAS date.",Computation
+adsl ,trtdurd,13,No,,TRTEDT-TRTSDT+1,Computation
+adsl ,avgdd,14,No,,CUMDOSE/TRTDURD,Computation
+adsl ,cumdose,15,No,,"For TRT01PN=0 or 54: CUMDOSE=TRT01PN*TRTDURD. 
+For TRT01PN=81: CUMDOSE will be based on 
+  54 mg per day for the # of days subject was in 1st dosing interval 
+    (i.e., Date of visit 4 - TRTSTDT+1 if 1st interval completed, TRTEDT-TRTSTDT+1 if subject discontinued &lt;= Visit 4 (Week 4) and &gt; Visit 3 (Baseline)), 
+  81 mg per day for the # of days subject was in 2nd dosing interval 
+    (i.e., Date of Visit 12 - Date of Visit 4 if 2nd interval completed, TRTEDT- Date of Visit 4 if subject discontinued &lt;= Visit 12 (Week 24) and &gt; Visit 4), 
+  and 54 mg per day for the # of days subject was in 3rd dosing interval 
+    (i.e., TRTEDT - Date of Visit 12 if subject continued after Visit 12).",Computation
+adsl ,age,16,No,,,
+adsl ,agegr1,17,No,,"Grouping of AGE into <65, 65-80, and >80",Computation
+adsl ,agegr1n,18,No,,,
+adsl ,ageu,19,No,,,
+adsl ,race,20,No ,,,
+adsl ,racen ,21,No ,,,
+adsl ,sex ,22,No ,,,
+adsl ,ethnic ,23,No ,,,
+adsl ,saffl ,24,No ,,Y if ITTFL='Y' and TRTSDT ne missing. N otherwise,Computation
+adsl ,ittfl ,25,No ,,Y if ARMCD ne ' '. N otherwise,Computation
+adsl ,efffl ,26,No ,,"Y if SAFFL='Y AND subject has at least one record in QS for ADAS-Cog with QS.VISITNUM>3 AND at least one record in QS for CIBIC+ with QS.VISITNUM>3, N otherwise",Computation
+adsl ,comp8fl ,27,No ,,"Y if subject has a SV.VISITNUM=8 and TRTEDT>= date of visit 8, N otherwise",Computation
+adsl ,comp16fl ,28,No ,,"Y if subject has a SV.VISITNUM=10 and TRTEDT>=date of visit 10, N otherwise",Computation
+adsl ,comp24fl ,29,No ,,"Y if subject has a SV.VISITNUM=12 and TRTEDT>= date of visit 12 , N otherwise",Computation
+adsl ,disconfl ,30,No ,,Y if EOSSTT='DISCONTINUED'. Null otherwise,Computation
+adsl ,dsraefl ,31,No ,,Y if DCSREAS='Adverse Event'. Null otherwise,Computation
+adsl ,dthfl ,32,No ,,,
+adsl ,bmibl ,33,No ,,WEIGHTBL / ((HEIGHTBL*100)**2),Computation
+adsl ,bmiblgr1,34,No ,,BMIBLGR1=Normal if . <BMIBL <25. BMIBLGR1=Overweight if 25 <=BMIBL <30. BMIBLGR1=Obese if BMIBL >=30,Computation
+adsl ,heightbl ,35,No ,,VS.VSSTRESN where VS.VSTESTCD='HEIGHT' and VS.VISITNUM=1,Computation
+adsl ,weightbl ,36,No ,,VS.VSSTRESN where VS.VSTESTCD='WEIGHT' and VS.VISITNUM=3,Computation
+adsl ,educlvl ,37,No ,,"SC.SCSTRESN where SC.SCTESTCD=""EDLEVEL""",Computation
+adsl ,disondt ,38,No ,,MH.MHSTDTC where MH.MHCAT='PRIMARY DIAGNOSIS' converted to SAS date,Computation
+adsl ,durdis ,39,No ,,number of months between Date of VISIT 1 and DISONDT,Computation
+adsl ,durdsgr1,40,No ,,grouping DURDIS values as <12 and >=12,Computation
+adsl ,visit1dt,41,No ,,"SV.SVSTDTC where SV.VISITNUM=1, converted to SAS date",Computation
+adsl ,rfstdtc,42,No ,,,
+adsl ,rfendtc ,43,No ,,,
+adsl ,visnumen,44,No ,,"If DS.VISITNUM=13 where DS.DSTERM='PROTOCOL COMPLETED' then VISNUMEN=12, otherwise VISNUMEN=DS.VISITNUM where DS.DSTERM='PROTOCOL COMPLETED'",Computation
+adsl ,rfendt ,45,No ,,RFENDTC converted to SAS date,Computation
+adsl ,eosstt,46,No ,,If DS.DSDECOD='COMPLETED' then EOSSTT='COMPLETED'. Otherwise EOSSTT='DISCONTINUED'.,Computation
+adsl ,dcsreas,47,No ,,If DS.DSCAT='DISPOSITION EVENT' and DS.DSTERM in('I/E NOT MET' 'SPONSOR DECISION' 'WITHDREW CONSENT') then DCSREAS=DS.DSTERM. Otherwise if DS.DSCAT='DISPOSITION EVENT' then DCSREAS=DS.DSDECOD. Convert to mixed case to match display format.,Computation
+adsl ,eosdisp ,48,No ,,,
+adsl ,mms1tsbl ,49,No ,,"Sum of FT.FTSTRESN values where FT.FTCAT=""MMSE"" for the subject (FT.FTTESTCD= 'MMS101A'-'MMS111')",Computation
+adqsadas,studyid ,1,No ,1,,
+adqsadas,siteid ,2,No ,,,
+adqsadas ,sitegr1 ,3,No ,,,
+adqsadas ,usubjid ,4,No ,2,,
+adqsadas,trtsdt ,5,No ,,,
+adqsadas,trtedt ,6,No ,,,
+adqsadas,trtp ,7,No ,,,
+adqsadas,trtpn ,8,No ,,,
+adqsadas,age ,9,No ,,,
+adqsadas ,agegr1 ,10,No ,,,
+adqsadas,agegr1n ,11,No ,,,
+adqsadas ,race ,12,No ,,,
+adqsadas ,racen ,13,No ,,,
+adqsadas ,sex ,14,No ,,,
+adqsadas ,ittfl ,15,No ,,,
+adqsadas ,efffl ,16,No ,,,
+adqsadas ,comp24fl ,17,No ,,,
+adqsadas ,avisit ,18,No ,4,"Derived based on windowing algorithm described in SAP, Section 8.2",Computation
+adqsadas ,avisitn,19,No ,,,
+adqsadas ,visit ,20,No ,,,
+adqsadas ,visitnum ,21,No ,,,
+adqsadas ,ady ,22,No ,,"ADY = ADT - TRTSDT + 1, if ADT&gt;=TRTSDT. ADY = ADT - TRTSDT, if ADT<TRTSDT.",Computation 
+adqsadas ,adt ,23,No ,5,SAS date from QS.QSDTC,Computation 
+adqsadas ,param ,24,No ,,,
+adqsadas ,paramcd ,25,No ,3,,
+adqsadas ,paramn ,26,No ,,,
+adqsadas ,aval ,27,No ,,,
+adqsadas ,base ,28,No ,,QS.QSSTRESN where QS.QSBLFL=Y (QS.VISITNUM=3),Computation 
+adqsadas ,chg ,29,No ,,AVAL - BASE,Computation 
+adqsadas ,pchg ,30,No ,,100* (CHG/BASE),Computation 
+adqsadas ,ablfl ,31,No ,,,
+adqsadas ,anl01fl ,32,No ,,"If multiple visits fall into the same visit window, then the one closest to the target day is chosen for analysis. These are flagged with ANL01FL=""Y"".",Computation 
+adqsadas ,dtype ,33,No ,,,
+adqsadas ,awrange ,34,No ,,,
+adqsadas ,awtarget ,35,No ,,,
+adqsadas ,awtdiff ,36,No ,,Absolute difference between AWTARGET and ADY,Computation
+adqsadas,awlo ,37,No ,,,
+adqsadas,awhi ,38,No ,,,
+adqsadas ,awu ,39,No ,,,
+adqsadas ,qsseq ,40,No ,,,
+adae ,studyid ,1,No ,1,,
+adae ,siteid ,2,No ,,,
+adae ,usubjid ,3,No ,2,,
+adae ,trta ,4,No ,,,
+adae ,trtan ,5,No ,,,
+adae ,age ,6,No  ,,,
+adae ,agegr1,7,No ,,,
+adae ,agegr1n ,8,No ,,,
+adae ,race ,9,No ,,,
+adae ,racen ,10,No ,,,
+adae ,sex ,11,No ,,,
+adae ,saffl ,12,No ,,,
+adae ,trtsdt ,13,No ,,,
+adae ,trtedt ,14,No ,,,
+adae ,astdt ,15,No ,4,"AE.AESTDTC, converted to a numeric SAS date. Some events with partial dates are imputed in a conservative manner. If the day component is missing, a value of '01' is used. If both the month and day are missing no imputation is performed as these dates clearly indicate a start prior to the beginning of treatment. There are no events with completely missing start dates.",Computation
+adae ,astdtf,16,No ,,ASTDTF='D' if the day value within the character date is imputed. Note that only day values needed to be imputed for this study,Computation
+adae ,astdy ,17,No ,,IF ASTDT>=TRTSDT>MISSING then ASTDY=ASTDT-TRTSDT+1 Else if TRTSDT>ASTDT>MISSING then ASTDY=ASTDT-TRTSDT,Computation
+adae ,aendt ,18,No ,,"AE.AEENDTC, converted to a numeric SAS date",Computation
+adae ,aendy ,19,No ,,IF AENDT>=TRTSDT>MISSING then AENDY=AENDT-TRTSDT+1 Else if TRTSDT>AENDT>MISSING then AENDY=AENDT-TRTSDT,Computation
+adae ,adurn ,20,No ,,ADURN=AENDT-ASTDT+1,Computation
+adae ,aduru ,21,No ,,If ADURN is not missing then ADURU='DAY',Computation
+adae ,aeterm ,22,No ,3,,
+adae ,aellt ,23,No ,,,
+adae ,aelltcd ,24,No ,,,
+adae ,aedecod ,25,No ,,,
+adae ,aeptcd ,26,No ,,,
+adae ,aehlt ,27,No ,,,
+adae ,aehltcd ,28,No ,,,
+adae ,aehlgt ,29,No ,,,
+adae ,aehlgtcd ,30,No ,,,
+adae ,aebodsys ,31,No ,,,
+adae ,aesoc ,32,No ,,,
+adae ,aesoccd ,33,No ,,,
+adae ,aesev ,34,No ,,,
+adae ,aeser,35,No ,,,
+adae ,aescan ,36,No ,,,
+adae ,aescong ,37,No ,,,
+adae ,aesdisab ,38,No ,,,
+adae ,aesdth ,39,No ,,,
+adae ,aeshosp ,40,No ,,,
+adae ,aeslife ,41,No ,,,
+adae ,aesod ,42,No ,,,
+adae ,aerel ,43,No ,,,
+adae ,aeacn ,44,No ,,,
+adae ,aeout ,45,No ,,,
+adae ,aeseq ,46,No ,5,,
+adae ,trtemfl ,47,No ,,If ASTDT >= TRTSDT > . then TRTEMFL='Y'. Otherwise TRTEMFL='N',Computation
+adae ,aoccfl ,48,No ,,"Subset to TRTEMFL='Y' and sort by Subject (USUBJID), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCCFL=’Y’) within each Subject",Computation
+adae ,aoccsfl ,49,No ,,"Subset to TRTEMFL='Y' and sort by Subject (USUBJID), System Organ Class (AEBODSYS), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCCSFL=’Y’) within each Subject and SOC",Computation
+adae ,aoccpfl ,50,No ,,"Subset to TRTEMFL='Y' and sort by Subject (USUBJID), System Organ Class (AEBODSYS), Preferred Term (AEDECOD), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCCPFL=’Y’) within each Subject, SOC, and PT",Computation
+adae ,aocc02fl ,51,No ,,"Subset to TRTEMFL='Y' and AESER='Y' and sort by Subject (USUBJID), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCC02FL=’Y’) within each Subject",Computation
+adae ,aocc03fl ,52,No ,,"Subset to TRTEMFL='Y' and AESER='Y' and sort by Subject (USUBJID), System Organ Class (AEBODSYS), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCC03FL=’Y’) within each Subject and SOC",Computation
+adae ,aocc04fl ,53,No ,,"Subset to TRTEMFL='Y' and AESER='Y' and sort by Subject (USUBJID), System Organ Class (AEBODSYS), Preferred Term (AEDECOD), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCC04FL=’Y’) within each Subject, SOC, and PT",Computation
+adae ,cq01nam ,54,No ,,"If AEDECOD contains any of the character strings of ('APPLICATION', 'DERMATITIS', 'ERYTHEMA', 'BLISTER') OR if AEBODSYS='SKIN AND SUBC UTANEOUS TISSUE DISORDERS' but AEDECOD is not in ('COLD SWEAT', 'HYPERHIDROSIS', 'ALOPECIA') then CQ01NAM='DERMATOLOGIC EVENTS' Otherwise CQ01NAM=NULL",Computation
+adae ,aocc01fl ,55,No ,,"Subset to CQ01NAM='' and TRTEMFL='Y' and sort by Subject (USUBJID), Start Date (ASTDT), and Sequence Number (AESEQ) and flag the first record (set AOCC01FL=’Y’) within each Subject (Flag First Treatment Emergent Dermatological Event for Time to Event Analysis)",Computation

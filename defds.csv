@@ -1,0 +1,4 @@
+dataset ,repeating ,ISReferenceData,Purpose,standard,structure,label ,class,SubClass ,Comment ,doc1,doc2 ,PageRef2,PageTyp2
+adsl,No,No,Analysis,STD.01,one record per subject,Subject-Level Analysis,SUBJECT LEVEL ANALYSIS DATASET,,Screen Failures are excluded since they are not needed for this study analysis. See referenced dataset creation program and ADRG,ADSL.PGM ,ADRG,6,PhysicalRef
+adqsadas,Yes,No,Analysis,STD.01,one record per subject per parameter per analysis visit per analysis date,ADAS-Cog Analysis,BASIC DATA STRUCTURE,,See referenced dataset creation program and ADRG,ADQSADAS.PGM,ADRG,Section 2.1 ,NamedDestination
+adae,Yes,No,Analysis,STD.01,one record per subject per adverse event,Adverse Events Analysis Dataset,OCCURRENCE DATA STRUCTURE,ADVERSE EVENT,See SAS program,CODE.001,,,

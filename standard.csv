@@ -1,0 +1,4 @@
+OID,Name ,Type ,PublishingSet ,Status ,Version ,CommentID ,Comment 
+STD.01 ,ADaMIG ,IG,,Final,1.1,,
+STD.CT.01 ,CDISC/NCI ,CT,ADaM ,Final,2017-09-29 ,SDTCT.01 ,ADaM specific CT is applicable for a few variables only.
+STD.CT.02 ,CDISC/NCI ,CT ,SDTM ,Final ,2018-06-29,STDCT.02 ,SDTM CT is applicable for variables copied from SDTM to ADaM.

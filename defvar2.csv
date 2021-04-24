@@ -1,0 +1,151 @@
+dataset ,variable,paramcd ,mandatory,order,method,document,PageRefs,Type,typ,datatype,length ,DisplayFormat ,SignificantDigits,Comment ,label ,valueList ,format ,origin ,orgdtl ,source 
+adqsadas ,studyid,,,,,,,,,text ,12,,,,Study Identifier ,,,Predecessor ,ADSL.STUDYID,
+adqsadas ,siteid ,,,,,,,,,text ,3,,,,Study Site Identifier ,,,Predecessor ,ADSL.SITEID ,
+adqsadas ,sitegr1 ,,,,,,,,,text ,3,,,,Pooled Site Group 1 ,,,Predecessor ,ADSL.SITEGR1,
+adqsadas ,usubjid ,,,,,,,,,text ,11,,,,Unique Subject Identifier ,,,Predecessor ,ADSL.USUBJID,
+adqsadas ,trtsdt ,,,,,,,,,integer ,5,date9.,,,Date of First Exposure to Treatment ,,,Predecessor ,ADSL.TRTSDT ,
+adqsadas ,trtedt ,,,,,,,,,integer ,5,date9. ,,,date of Last Exposure to Treatment ,,,Predecessor ,ADSL.TRTEDT ,
+adqsadas ,trtp ,,,,,,,,,text ,20,,,,Planned Treatment ,,ARM ,Predecessor ,ADSL.TRT01P ,
+adqsadas ,trtpn,,,,,,,,,integer ,2,,,,Planned Treatment (N),,ARMN,Predecessor ,ADSL.TRT01PN,
+adqsadas ,age ,,,,,,,,,integer ,2,,,,Age ,,,Predecessor ,ADSL.AGE ,
+adqsadas ,agegr1,,,,,,,,,text ,5,,,,Pooled Age Group 1 ,,AGEGR1 ,Predecessor ,ADSL.AGEGR1,
+adqsadas ,agegr1n,,,,,,,,,integer ,1,,,,Pooled Age Group 1 (N),,,Predecessor ,ADSL.AGEGR1N,
+adqsadas ,race,,,,,,,,,text ,32,,,,Race ,,RACE,Predecessor ,ADSL.RACE,
+adqsadas ,racen ,,,,,,,,,integer ,1,,,,Race (N) ,,RACEN,Predecessor ,ADSL.RACEN,
+adqsadas ,sex ,,,,,,,,,text ,1,,,,Sex ,,SEX ,Predecessor ,ADSL.SEX ,
+adqsadas ,ittfl ,,,,,,,,,text ,1,,,,Intent-To-Treat Population Flag ,,YN ,Predecessor ,ADSL.ITTFL ,
+adqsadas ,efffl ,,,,,,,,,text ,1,,,,Efficacy Population Flag ,,YN ,Predecessor ,ADSL.EFFFL ,
+adqsadas ,comp24fl ,,,,,,,,,text ,1,,,,Completers of Week 24 Population Flag ,,YN ,Predecessor ,ADSL.COMP24FL ,
+adqsadas ,avisit ,,,,,,,,,text ,16,,,,Analysis Visit ,,AVISIT ,Derived ,,Sponsor  
+adqsadas ,avisitn ,,,,,,,,,integer ,5,,,Numeric code for AVISIT,Analysis Visit (N) ,,AVISITN ,Assigned ,,Sponsor 
+adqsadas ,visit ,,,,,,,,,text ,19,,,,Visit Name ,,VISIT ,Predecessor ,QS.VISIT ,
+adqsadas ,visitnum ,,,,,,,,,float ,4,5.1,1,,Visit Number ,,,Predecessor ,QS.VISITNUM ,
+adqsadas ,ady ,,,,,,,,,integer ,3,,,,Analysis Relative Day ,,,Derived ,,Sponsor 
+adqsadas ,adt ,,,,,,,,,integer ,5,date9. ,,,Analysis Date ,,,Derived ,,Sponsor 
+adqsadas ,param,,,,,,,,,text ,100,,,,Parameter ,,PARAM_ADQSADAS,Assigned ,,Sponsor 
+adqsadas ,paramcd ,,,,,,,,,text ,8,,,,Parameter Code ,,PARAMCD_ADQSADAS,Assigned ,,Sponsor 
+adqsadas ,paramn ,,,,,,,,,integer ,2,,,Numeric code for PARAM,Parameter (N) ,,PARAMN_ADQSADAS ,Assigend ,,Sponsor 
+adqsadas ,aval ,,,,,,,,,integer ,3,,,,Analysis Value ,Yes ,,,,
+adqsadas ,base ,,,,,,,,,integer ,2,,,,Baseline value ,,,Derived ,,Sponsor 
+adqsadas ,chg ,,,,,,,,,integer ,8,,,,Change from Baseline ,,,Derived ,,Sponsor 
+adqsadas ,pchg ,,,,,,,,,integer ,8,,,,Percent Change from Baseline ,,,Derived ,,Sponsor 
+adqsadas ,ablfl,,,,,,,,,text ,1,,,,Baseline Record Flag ,,Y_BLANK ,Predecessor ,QS.QSBLFL,
+adqsadas ,anl01fl ,,,,,,,,,text ,1,,,,Analysis Flag 01 ,,Y_BLANK ,Derived ,,Sponsor 
+adqsadas ,dtype ,,,,,,,,,text ,7,,,,Derivation Type ,Yes ,DTYPE ,,,
+adqsadas ,awrange ,,,,,,,,,text ,9,,,"Window range, specified in the SAP.",Analysis Window Valid Relative Range ,,AWRANGE_ADQSADAS,Assigned ,,Sponsor 
+adqsadas ,awtarget ,,,,,,,,,integer ,8,,,"Target day within the window, specified in the SAP.",Analysis Window Target ,,,Assigned ,,Sponsor 
+adqsadas ,awtdiff ,,,,,,,,,integer,8,,,,Analysis Window Diff from Target ,,,Derived ,,Sponsor 
+adqsadas ,awlo ,,,,,,,,,integer ,8,,,"Start day of the window, specified in the SAP.",Analysis Window Beginning Timepoint ,,,Assigned ,,Sponsor 
+adqsadas ,awhi ,,,,,,,,,integer ,8,,,"End day of the window, specified in the SAP.",Analysis Window Ending Timepoint ,,,Assigned ,,Sponsor 
+adqsadas ,awu,,,,,,,,,text ,4,,,"Assigned as ""DAYS"".",Analysis Window Unit ,,AWU ,Assigned ,,Sponsor 
+adqsadas ,qsseq ,,,,,,,,,integer ,4,,,,Sequence Number ,Yes ,,,,
+adsl ,studyid ,,,,,,,,,text ,12,,,,Study Identifier ,,,Predecessor ,DM.STUDYID ,
+adsl ,usubjid ,,,,,,,,,text ,11,,,,Unique Subject Identifier ,,,Predecessor ,DM.USUBJID ,
+adsl ,subjid ,,,,,,,,,text ,4,,,,Subject Identifier for the Study ,,,Predecessor ,DM.SUBJID ,
+adsl ,siteid ,,,,,,,,,text ,3,,,,Study Site Identifier ,,,Predecessor ,DM.SITEID ,
+adsl ,sitegr1 ,,,,,,,,,text ,3,,,,Pooled Site Group 1 ,,,Derived ,,Sponsor 
+adsl ,arm ,,,,,,,,,text ,20,,,,Description of Planned Arm ,,ARM,Predecessor ,DM.ARM ,
+adsl ,trt01p ,,,,,,,,,text ,20,,,,Planned Treatment for Period 01 ,,ARM ,Predecessor ,DM.ARM ,
+adsl ,trt01pn,,,,,,,,,integer ,2,,,Numeric code for TRT01P,Planned Treatment for Period 01 (N),,ARMN,Assigned ,,Sponsor 
+adsl ,trt01a ,,,,,,,,,text ,20,,,"TRT01A=TRT01P, i.e., no difference between actual and randomized treatment in this study.",Actual Treatment for Period 01 ,,ARM,Assigned ,,Sponsor 
+adsl ,trt01an ,,,,,,,,,integer ,2,,,Numeric code for TRT01A,Actual Treatment for Period 01 (N),,ARMN,Assigned ,,Sponsor 
+adsl ,trtsdt ,,,,,,,,,integer ,5,date9.,,,Date of First Exposure to Treatment ,,,Derived ,,Sponsor 
+adsl ,trtedt ,,,,,,,,,integer ,5,date9. ,,,Date of Last Exposure to Treatment ,,,Derived ,,Sponsor 
+adsl ,trtdurd ,,,,,,,,,integer ,3,,,,Total Treatment Duration (Days),,,Derived ,,Sponsor 
+adsl ,avgdd,,,,,,,,,float ,4,5.1,1,,Avg Daily Dose (as planned) ,,,Derived ,,Sponsor 
+adsl ,cumdose ,,,,,,,,,float ,7,8.1,1,,Cumulative Dose ,,,Derived ,,Sponsor 
+adsl ,age ,,,,,,,,,integer ,2,,,,Age ,,,Predecessor ,DM.AGE ,
+adsl ,agegr1,,,,,,,,,text ,5,,,,Pooled Age Group 1 ,,AGEGR1 ,Derived ,,Sponsor 
+adsl ,agegr1n ,,,,,,,,,integer ,2,,,Numeric code for AGEGR1,Pooled Age Group 1 (N) ,,AGEGR1N,Assigned ,,Sponsor 
+adsl ,ageu,,,,,,,,,text ,5,,,,Age Units ,,AGEU ,Predecessor ,DM.AGEU,
+adsl ,race,,,,,,,,,text ,32,,,,Race ,,RACE,Predecessor ,DM.RACE,
+adsl ,racen ,,,,,,,,,integer ,1,,,Numeric code for RACE,Race (N) ,,RACEN,Assigned ,,Sponsor 
+adsl ,sex ,,,,,,,,,text ,1,,,,Sex ,,SEX ,Predecessor ,DM.SEX ,
+adsl ,ethnic ,,,,,,,,,text ,22,,,,Ethnicity,,ETHNIC ,Predecessor ,DM.ETHNIC,
+adsl ,saffl ,,,,,,,,,text ,1,,,,Safety Population Flag ,,YN ,Derived ,,Sponsor 
+adsl ,ittfl ,,,,,,,,,text ,1,,,,Intent-To-Treat Population Flag ,,YN ,Derived ,,Sponsor 
+adsl ,efffl ,,,,,,,,,text ,1,,,,Efficacy Population Flag ,,YN ,Derived ,,Sponsor 
+adsl ,comp8fl ,,,,,,,,,text ,1,,,,Completers of Week 8 Population Flag ,,YN ,Derived ,,Sponsor 
+adsl ,comp16fl ,,,,,,,,,text ,1,,,,Completers of Week 16 population Flag ,,YN ,Derived ,,Sponsor 
+adsl ,comp24fl ,,,,,,,,,text ,1,,,,Completers of Week 24 Population Flag ,,YN ,Derived ,,Sponsor 
+adsl ,disconfl ,,,,,,,,,text ,1,,,,Subject Discontinued Study Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adsl ,dsraefl ,,,,,,,,,text ,1,,,,Subject Discontinued due to AE Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adsl ,dthfl ,,,,,,,,,text ,1,,,,Subject Death Flag ,,Y_BLANK ,Predecessor ,DM.DTHFL,
+adsl ,bmibl,,,,,,,,,float ,4,5.1,1,,Baseline BMI (kg/m^2),,,Derived ,,Sponsor 
+adsl ,bmiblgr1,,,,,,,,,text ,6,,,,Pooled Baseline BMI Group 1 ,,BMICAT,Derived ,,Sponsor 
+adsl ,heightbl,,,,,,,,,float ,5,6.1,1,,Baseline Height (cm) ,,,Derived ,,Sponsor 
+adsl ,weightbl ,,,,,,,,,float ,5,6.1,1,,Baselnie Weight (kg),,,Derived ,,Sponsor 
+adsl ,educlvl ,,,,,,,,,integer,2,,,,Years of Education ,,,Derived ,,Sponsor 
+adsl ,disondt ,,,,,,,,,integer ,5,date9. ,,,Date of Onset of Disease ,,,Derived ,,Sponsor 
+adsl ,durdis ,,,,,,,,,float ,5,6.1,1,,Duration of Disease (Months) ,,,Derived ,,Sponsor 
+adsl ,durdsgr1 ,,,,,,,,,text ,4,,,,Pooled Disease Duration Group 1 ,,DURDISC ,Derived ,,Sponsor 
+adsl ,visit1dt ,,,,,,,,,integer ,5,date9. ,,,Date of Visit 1 ,,,Derived ,,Sponsor 
+adsl ,rfstdtc ,,,,,,,,,date ,,,,,Subject Reference Start Date/Time ,,,Predecessor ,DM.RFSTDTC,
+adsl ,rfendtc ,,,,,,,,,date ,,,,,Subject Reference End Date/Time ,,,Predecessor ,DM.RFENDTC ,
+adsl ,visnumen,,,,,,,,,integer ,2,,,,End of Trt Visit (Vis 12 or Early Term.),,,Derived ,,Sponsor 
+adsl ,rfendt ,,,,,,,,,integer ,5,,,,Date of Discontinuation/Completion ,,,Derived ,,Sponsor 
+adsl ,eosstt ,,,,,,,,,text ,12,,,,End of Study Status ,,EOSSTT,Derived ,,Sponsor 
+adsl ,dcsreas,,,,,,,,,text ,18,,,,Reason for Discontinuation from Study ,,DISCREAS,Derived ,,Sponsor 
+adsl ,eosdisp ,,,,,,,,,text ,27,,,,Standardized Disposition Term ,,DISCCD ,Predecessor ,DS.DSDECOD where DS.DSCAT='DISPOSITION EVENT',
+adsl ,mms1tsbl ,,,,,,,,,integer ,2,,,,MMS1-Total Score at Baseline ,,,Derived ,,Sponsor 
+adqsadas ,aval ,ACITM01-ACITM14 ,No,1,,,,,,integer ,2,,,,Analysis Value ,,,Predecessor ,QS.QSSTRESN where QS.QSTESTCD=ADQSADAS.PARAMCD ,
+adqsadas ,aval ,ACTOT ,No,2,"Sum of ADAS scores for items 1, 2, 4, 5, 6, 7, 8, 11, 12, 13, and 14, see ADRG for details on adjusting for missing values.",ADRG,3,PhysicalRef,Computation,integer ,3,,,,Analysis Value ,,,Derived ,,Sponsor 
+adqsadas ,dtype ,ACITM01-ACITM14 ,No,1,,,,,,text ,7,,,Value: null,Derivation Type ,,DTYPE ,Assigned ,,Sponsor 
+adqsadas ,dtype ,ACTOT ,No,2,,,,,,text ,7,,,Value: LOCF denotes that the LOCF imputation method was used to impute the value for the given parameter and analysis visit.,Derivation Type ,,DTYPE ,Assigned ,,Sponsor 
+adqsadas ,qsseq ,ACITM01-ACITM14 ,No,1,,,,,,integer ,4,,,,Sequence Number ,,,Predecessor ,QS.QSSEQ ,
+adqsadas ,qsseq ,ACTOT ,No,2,,,,,,integer ,3,,,Set QSSEQ to missing for post baseline records. Set to QS.QSSEQ where QS.VISIT=BASELINE and QS.QSTESTCD=ACTOT.,Sequence Number ,,,Assigned ,,Sponsor 
+adae ,studyid ,,,,,,,,,text ,12,,,,Study Identifier ,,,Predecessor ,ADSL.STUDYID ,
+adae ,siteid ,,,,,,,,,text ,3,,,,Study Site Identifier ,,,Predecessor ,ADSL.SITEID ,
+adae ,usubjid ,,,,,,,,,text ,11,,,,Unique Subject Identifier ,,,Predecessor ,ADSL.USUBJID ,
+adae ,trta ,,,,,,,,,text ,20,,,,Actual Treatment ,,ARM ,Predecessor ,ADSL.TRT01A,
+adae ,trtan,,,,,,,,,integer ,2,,,,Actual Treatment (N),,ARMN,Predecessor ,ADSL.TRT01AN,
+adae ,age ,,,,,,,,,integer ,2,,,,Age ,,,Predecessor ,ADSL.AGE ,
+adae ,agegr1,,,,,,,,,text ,5,,,,Pooled Age Group 1 ,,AGEGR1 ,Predecessor ,ADSL.AGEGR1 ,
+adae ,agegr1n,,,,,,,,,integer ,1,,,,Pooled Age Group 1 (N) ,,AGEGR1N,Predecessor ,ADSL.AGEGR1N ,
+adae ,race ,,,,,,,,,text ,32,,,,Race ,,RACE ,Predecessor ,ADSL.RACE ,
+adae ,racen ,,,,,,,,,integer ,1,,,,Race (N) ,,RACEN ,Predecessor ,ADSL.RACEN ,
+adae ,sex ,,,,,,,,,text ,1,,,,Sex ,,SEX ,Predecessor ,ADSL.SEX ,
+adae ,saffl ,,,,,,,,,text ,1,,,,Safety Population Flag ,,YN ,Predecessor ,ADSL.SAFFL,
+adae ,trtsdt ,,,,,,,,,integer ,5,date9.,,,Date of First Exposure to Treatment ,,,Predecessor ,ADSL.TRTSDT ,
+adae ,trtedt ,,,,,,,,,integer ,5,date9. ,,,Date of Last Exposure to Treatment ,,,Predecessor ,ADSL.TRTEDT ,
+adae ,astdt ,,,,,,,,,integer ,5,date9. ,,,Analysis Start Date ,,,Derived ,,Sponsor 
+adae ,astdtf ,,,,,,,,,text ,1,,,,Analysis Start Date Imputation Flag ,,DATEFL ,Derived ,,Sponsor 
+adae ,astdy ,,,,,,,,,integer ,5,,,,Analysis Start Relative Day ,,,Derived ,,Sponsor
+adae ,aendt ,,,,,,,,,integer ,5,date9. ,,,Analysis End Date ,,,Derived ,,Sponsor 
+adae ,aendy ,,,,,,,,,integer ,4,,,,Analysis End Relative Day ,,,Derived ,,Sponsor 
+adae ,adurn ,,,,,,,,,integer ,3,,,,Analysis Duration (N) ,,,Derived ,,Sponsor 
+adae ,aduru ,,,,,,,,,text ,3,,,,Analysis Duration Units ,,,Derived ,,Sponsor 
+adae ,aeterm ,,,,,,,,,text ,46,,,,Reported Term for the Adverse Event ,,,Predecessor ,AE.AETERM ,
+adae ,aellt ,,,,,,,,,text ,46,,,,Lowest Level Term ,,AEDICT,Predecessor ,AE.AELLT,
+adae ,aelltcd ,,,,,,,,,integer ,8,,,,Lowest Level Term Code ,,AEDICTN,Predecessor ,AE.AELLTCD,
+adae ,aedecod ,,,,,,,,,text ,46,,,,Dictionary-Derived Term ,,AEDICT,Predecessor ,AE.AEDECOD ,
+adae ,aeptcd ,,,,,,,,,integer ,8,,,,Preferred Term Code ,,AEDICTN,Predecessor ,AE.AEPTCD,
+adae ,aehlt,,,,,,,,,text ,8,,,,High Level Term ,,AEDICT,Predecessor ,AE.AEHLT ,
+adae ,aehltcd ,,,,,,,,,integer ,8,,,,High Level Term Code ,,AEDICTN,Predecessor ,AE.AEHLTCD,
+adae ,aehlgt ,,,,,,,,,text ,9,,,,High Level Group Term ,,AEDICT,Predecessor ,AE.AEHLGT,
+adae ,aehlgtcd ,,,,,,,,,integer ,8,,,,High Level Group Term Code ,,AEDICTN,Predecessor ,AE.AEHLGTCD ,
+adae ,aebodsys ,,,,,,,,,text ,67,,,,Body System or Organ Class ,,AEDICT,Predecessor ,AE.AEBODSYS,
+adae ,aesoc ,,,,,,,,,text ,67,,,,Primary System Organ Class ,,AEDICT,Predecessor ,AE.AESOC ,
+adae ,aesoccd ,,,,,,,,,integer ,8,,,,Primary System Organ Class Code ,,AEDICTN,Predecessor ,AE.AESOCCD,
+adae ,aesev ,,,,,,,,,text ,8,,,,Severity/Intensity ,,AESEV,Predecessor ,AE.AESEV,
+adae ,aeser ,,,,,,,,,text ,1,,,,Serious Event ,,YN ,Predecessor ,AE.AESER,
+adae ,aescan ,,,,,,,,,text ,1,,,,Involves Cancer ,,YN ,Predecessor ,AE.AESCAN ,
+adae ,aescong,,,,,,,,,text ,1,,,,Congenital Anomaly or Birth Defect ,,YN ,Predecessor ,AE.AESCONG,
+adae ,aesdisab ,,,,,,,,,text ,1,,,,Persist or Signif Disability/Incapacity ,,YN ,Predecessor ,AE.AESDISAB,
+adae ,aesdth ,,,,,,,,,text ,1,,,,Results in Death ,,YN ,Predecessor ,AE.AESDTH ,
+adae ,aeshosp ,,,,,,,,,text ,1,,,,Requires or Prolongs Hospitalization ,,YN ,Predecessor ,AE.AESHOSP ,
+adae ,aeslife ,,,,,,,,,text ,1,,,,Is Life Threatening ,,YN ,Predecessor ,AE.AESLIFE ,
+adae ,aesod ,,,,,,,,,text ,1,,,,Occurred with Overdose ,,YN ,Predecessor ,AE.AESOD ,
+adae ,aerel ,,,,,,,,,text ,8,,,,Causality ,,AECAUS,Predecessor ,AE.AEREL,
+adae ,aeacn ,,,,,,,,,text ,1,,,,Action Taken with Study Treatment ,,,Predecessor ,AE.AEACN,
+adae ,aeout ,,,,,,,,,text ,26,,,,Outcome of Adverse Event ,,OUT ,Predecessor ,AE.AEOUT ,
+adae ,aeseq ,,,,,,,,,integer ,8,,,,Sequence Number ,,,Predecessor ,AE.AESEQ ,
+adae ,trtemfl ,,,,,,,,,text ,1,,,,Treatment Emergent Analysis Flag ,,YN ,Derived ,,Sponsor 
+adae ,aoccfl ,,,,,,,,,text ,1,,,,1st Occurrence within Subject Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adae ,aoccsfl ,,,,,,,,,text ,1,,,,1st Occurrence of SOC Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adae ,aoccpfl ,,,,,,,,,text ,1,,,,1st Occurrence of Preferred Term Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adae ,aocc02fl ,,,,,,,,,text ,1,,,,1st Occurrence of Serious 02 Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adae ,aocc03fl ,,,,,,,,,text ,1,,,,1st Occurrence of Serious SOC 03 Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adae ,aocc04fl ,,,,,,,,,text ,1,,,,1st Occurrence of Serious PT 04 Flag ,,Y_BLANK ,Derived ,,Sponsor 
+adae ,cq01nam ,,,,,,,,,text ,19,,,,Customized Query 01 Name ,,,Derived ,,Sponsor 
+adae ,aocc01fl ,,,,,,,,,text ,1,,,,1st Occurrence of CQ01 01 Flag ,,Y_BLANK ,Derived ,,Sponsor 

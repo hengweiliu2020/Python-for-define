@@ -1,0 +1,14 @@
+OID ,ID ,Parameter,AnalysisReason,AnalysisPurpose ,AnalysisDescription,CommentID,Comment,Dataset ,Variable ,Documentation,Document,PageRefs,Type,Title ,Context ,Code,File
+Table_14-3.01,Table_14-3.01.R.1,PARAMCD,SPECIFIED IN SAP,PRIMARY OUTCOME MEASURE,Dose response analysis for ADAS-Cog changes from baseline,,,ADQSADAS,CHG,Linear model analysis of CHG for dose response; using randomized dose (0 for placebo; 54 for low dose; 81 for high dose) and site group in model. Used PROC GLM in SAS to produce p-value (from Type III SS for treatment dose).,CSR,4,PhysicalRef,SAP Section 10.1.1,SAS version 9.2,"proc glm data = ADQSADAS;
+  where EFFFL='Y' and ANL01FL='Y' and AVISIT='Week 24' and PARAMCD=""ACTOT"";
+  class SITEGR1;
+  model CHG = TRTPN SITEGR1;
+run;",
+Table_14-3.01,Table_14-3.01.R.2,PARAMCD,SPECIFIED IN SAP,PRIMARY OUTCOME MEASURE,Pairwise comparisons to placebo for ADAS-Cog changes from baseline,,,ADQSADAS,CHG,ANCOVA analysis of CHG performed to provide pairwise comparisons among treatment groups and adjusted means; using randomized treatment as class variable and site group as class variable in model and the baseline value as a covariate.,CSR,4,PhysicalRef,Sap Section 10.1.1,SAS version 9.2 ,"proc glm data = ADQSADAS;
+  where EFFFL='Y' and ANL01FL='Y' and AVISIT='Week 24' and PARAMCD=""ACTOT"";
+  class TRTPN SITEGR1;
+  model CHG = TRTPN SITEGR1 BASE;
+  means TRTPN;
+  lsmeans TRTPN / OM STDERR PDIFF CL;
+run;",
+Table_14-5.02,Table_14-5.02.R.1,,SPECIFIED IN SAP,PRIMARY OUTCOME MEASURE,Incidence of Treatment Emergent Serious Adverse Events by Treatment Group,JOIN-ADSL-ADAE,Get denominators for percentages from ADSL and counts and numerators from ADAE. Join ADAE with ADSL based on the unique subject identifier (USUBJID) keeping only records in ADAE for the numerator.,ADAE; ADSL,ADAE.AEBODSYS;ADAE.AEDECOD,"Unique count of subjects that experienced an Adverse Event by Preferred Term, System Organ Class, and Treatment Group and percentages based on the number of subjects in the safety population within each treatment group. The total number of times an event occurred was recorded by Preferred Term, System Organ Class, and Treatment Group. Fisher's exact test was used for treatment comparison of event rates.",CSR,5,PhysicalRef,SAP Section 11.2 ,SAS version 9.2,,at14-5-02.sas

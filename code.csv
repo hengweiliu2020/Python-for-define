@@ -1,0 +1,33 @@
+frmt ,fmtname,fmtnci,datatype ,IsNonStandard ,standard 
+AGEGR1 ,Age Group ,,text ,Yes ,
+AGEGR1N ,Age Group (N) ,,integer,Yes ,
+AGEU,Age Unit,C66781,text ,,STD.CT.02
+ARM ,Actual Treatment ,,text ,Yes ,
+ARMN,Actual Treatment (N),,integer,Yes ,
+AVISIT ,Analysis Visit ,,text ,Yes ,
+AVISITN,Analysis Visit (N),,integer,Yes ,
+AWU,Unit - AWU ,C71620,text ,,STD.CT.02 
+BMICAT,Body Mass Index Category ,,text ,Yes ,
+DATEFL ,Date Imputation Flag ,C81223 ,text ,,STD.CT.01
+DISCCD ,Completion/Reason for Non-Completion ,C66727,text ,,STD.CT.02 
+DISCREAS,Reason for Discontinuation ,,text ,Yes ,
+DTYPE ,Derivation Type ,C81224 ,text ,,STD.CT.01 
+DURDISC ,Disease Duration Group ,,text ,Yes ,
+EOSSTT ,Subject Trial Status ,C124296,text ,,STD.CT.01 
+ETHNIC ,Ethnic Group ,C66790,text ,,STD.CT.02 
+PARAMCD_ADQSADAS,ADAS-Cog Parameter Code ,,text ,Yes ,
+PARAMN_ADQSADAS,ADAS-Cog Parameter Code (N) ,,integer,Yes ,
+PARAM_ADQSADAS,ADAS-Cog Parameter ,,text ,Yes ,
+AWRANGE_ADQSADAS,Analysis Window Range ,,text ,Yes ,
+RACE ,Race ,C74457 ,text ,,STD.CT.02 
+RACEN ,Race (N) ,,integer,Yes ,
+SEX,Sex ,C66731,text ,,STD.CT.02 
+VISIT ,Visit ,,text ,Yes ,
+VISITNUM ,Visit Number ,,float ,Yes ,
+YN ,No Yes Response ,C66742,text ,,STD.CT.02 
+Y_BLANK ,No Yes Response - Y subset ,C66742,text ,,STD.CT.02 
+AESEV,Severity/Intensity Scale for Adverse Events ,C66769 ,text ,,STD.CT.02 
+AECAUS ,Causality ,,text ,Yes ,
+OUT ,Outcome of Adverse Event ,C66768 ,text ,,STD.CT.02 
+AEDICT,Adverse Event Dictionary ,,text ,Yes ,
+AEDICTN,Adverse Event Dictionary (N) ,,integer,Yes ,
