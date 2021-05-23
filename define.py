@@ -762,6 +762,23 @@ with open('arm.csv', 'rt') as f:
                             chld8 = SubElement(chld6,"arm:AnalysisVariable", 
                                    {'ItemOID':'IT.'+it2m.strip()
                                    })
+
+
+                    elif  re.search(';', Dataset) and not re.search(';', Variable):
+                        itms=Dataset.split(';')
+                        for itm in itms:
+                            chld6 = SubElement(chld5, "arm:AnalysisDataset", 
+                                   {'ItemGroupOID':'IG.'+itm.strip()
+                                   })
+
+                            chld7 = SubElement(chld6,"def:WhereClauseRef", 
+                                  {'WhereClauseOID': 'WC.'+Id2.strip()+'.'+itm.strip(),
+                                  })
+                            if Variable[:len(itm)]==itm:
+                                chld8 = SubElement(chld6,"arm:AnalysisVariable", 
+                                     {'ItemOID':'IT.'+Variable.strip()
+                                     })
+
                     elif  re.search(';', Dataset) and re.search(';', Variable):
                         itms=Dataset.split(';')
                         it2ms=Variable.strip().split(';')
