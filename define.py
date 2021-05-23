@@ -737,64 +737,23 @@ with open('arm.csv', 'rt') as f:
                         chld5 = SubElement(podc,"arm:AnalysisDatasets", 
                                 {'def:CommentOID':'COM.'+CommentID.strip()
                                     })
-                    if not re.search(';', Dataset) and not re.search(';', Variable): 
+
+                    itms=Dataset.split(';')
+                    it2ms=Variable.strip().split(';')
+                    for itm in itms:
                         chld6 = SubElement(chld5, "arm:AnalysisDataset", 
-                                {'ItemGroupOID':'IG.'+Dataset.strip()
-                                })
-
-                        chld7 = SubElement(chld6,"def:WhereClauseRef", 
-                                {'WhereClauseOID': 'WC.'+Id2.strip()+'.'+Dataset.strip(),
-                                })
-                        chld8 = SubElement(chld6,"arm:AnalysisVariable", 
-                                {'ItemOID':'IT.'+Dataset.strip()+'.'+Variable.strip()
-                                })
-
-
-                    elif  not re.search(';', Dataset) and re.search(';', Variable):
-                        it2ms=Variable.strip().split(';')
-                        chld6 = SubElement(chld5, "arm:AnalysisDataset", 
-                               {'ItemGroupOID':'IG.'+Dataset.strip()
+                               {'ItemGroupOID':'IG.'+itm.strip()
                                })
+
                         chld7 = SubElement(chld6,"def:WhereClauseRef", 
-                              {'WhereClauseOID': 'WC.'+Id2.strip()+'.'+Dataset.strip(),
+                              {'WhereClauseOID': 'WC.'+Id2.strip()+'.'+itm.strip(),
                               })
                         for it2m in it2ms: 
-                            chld8 = SubElement(chld6,"arm:AnalysisVariable", 
-                                   {'ItemOID':'IT.'+it2m.strip()
-                                   })
-
-
-                    elif  re.search(';', Dataset) and not re.search(';', Variable):
-                        itms=Dataset.split(';')
-                        for itm in itms:
-                            chld6 = SubElement(chld5, "arm:AnalysisDataset", 
-                                   {'ItemGroupOID':'IG.'+itm.strip()
-                                   })
-
-                            chld7 = SubElement(chld6,"def:WhereClauseRef", 
-                                  {'WhereClauseOID': 'WC.'+Id2.strip()+'.'+itm.strip(),
-                                  })
-                            if Variable[:len(itm)]==itm:
+                            if it2m[:len(itm)]==itm:
                                 chld8 = SubElement(chld6,"arm:AnalysisVariable", 
-                                     {'ItemOID':'IT.'+Variable.strip()
+                                     {'ItemOID':'IT.'+it2m.strip()
                                      })
 
-                    elif  re.search(';', Dataset) and re.search(';', Variable):
-                        itms=Dataset.split(';')
-                        it2ms=Variable.strip().split(';')
-                        for itm in itms:
-                            chld6 = SubElement(chld5, "arm:AnalysisDataset", 
-                                   {'ItemGroupOID':'IG.'+itm.strip()
-                                   })
-
-                            chld7 = SubElement(chld6,"def:WhereClauseRef", 
-                                  {'WhereClauseOID': 'WC.'+Id2.strip()+'.'+itm.strip(),
-                                  })
-                            for it2m in it2ms: 
-                                if it2m[:len(itm)]==itm:
-                                    chld8 = SubElement(chld6,"arm:AnalysisVariable", 
-                                         {'ItemOID':'IT.'+it2m.strip()
-                                         })
                     chld9 = SubElement(podc, 'arm:Documentation')
                     chld10 = SubElement(chld9,'Description')
                     chld11 = SubElement(chld10,'TranslatedText')
