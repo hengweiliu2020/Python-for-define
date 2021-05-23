@@ -153,6 +153,7 @@ for cat in category:
         if ID==cat:
             chld = SubElement(body, 'RangeCheck',
                {"Comparator": Comparator.strip(),
+                "SoftHard": "Soft",
                "def:ItemOID": 'IT.'+Dataset.strip()+'.'+Variable.strip(), 
                })
             if not re.search(';',CheckValue):
